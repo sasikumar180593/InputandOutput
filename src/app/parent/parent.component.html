@@ -1,0 +1,11 @@
+<div *ngIf='!iseditable;else visible'>
+    <p>{{userDetails.name}}</p>
+    <p>{{userDetails.number}}</p>
+    <p>{{userDetails.address}}</p>
+    <p>{{userDetails.emailID}}</p>
+    <button (click)='edit()'>Edit</button>
+</div>
+
+<ng-template #visible>
+    <app-child (opt)='editedVal($event)' [userD]='userDetails'></app-child>
+</ng-template>
